@@ -4,6 +4,7 @@ import cities from "/modules/city.list.json";
 import Header from "components/Header";
 import Footer from "components/Footer";
 import Forecast from "components/forecast";
+import { format } from "date-fns";
 
 export async function getServerSideProps(context) {
   const city = getCity(context.params.city);
@@ -49,27 +50,51 @@ const getCity = (param) => {
 
 export default function City({ curent, slug, forecast }) {
   console.log(curent);
-  console.log(forecast);
-  console.log(slug);
+  const forecastData = forecast;
+  const slugData = slug;
+  const mapDates = forecastData.forecast.forecastday.map((data) => data.date);
+
+  let dates = mapDates.map((data) => {
+    const date = new Date(data);
+    const formattedDate = format(date, "dd/MM/yyyy");
+    return formattedDate;
+  });
+  const formatedDates = [...new Set(dates)];
+  const reFormat = formatedDates.map((data) => data)
+  console.log(dates)
+  const forecastElement = forecastData.forecast.forecastday.map((data) => {
+    return <Forecast data={...data} dates={reFormat} />;
+  });
+  console.log(mapDates);
   return (
     <div>
       <Header />
-      <div className="location"></div>
-      <h2>{curent.location.name}</h2>
-      <h4>
-        Contry:{curent.location.country} Region:{curent.location.region}
-      </h4>
+      <div className="location">
+        <h2>{curent.location.name}</h2>
+        <h4>
+          Contry:{curent.location.country} Region:{curent.location.region}
+        </h4>
 
-      <div className="current">
-        <h2>Current weather</h2>
-        <h3>{curent.current.temp_c}&deg;C</h3>
-        <h3>{curent.current.condition.text}</h3>
-        <img src={curent.current.condition.icon} alt="weather icon" />
+        <div className="current">
+          <h2>Current weather</h2>
+          <div className="temp">
+            <h3>{curent.current.temp_c}&deg;C</h3>
+            <h3>{curent.current.condition.text}</h3>
+            <img src={curent.current.condition.icon} alt="weather icon" />
+          </div>
+        </div>
+        <div className="forecast-container">
+          {forecastElement}
+          {/* <Forecast
+            slug={...slugData}
+            forecastData={...forecastData}
+            avgTemp={...avgTemp}
+            dates={...dates}
+          /> */}
+        </div>
       </div>
-      <div className="forecast-container">
-        <Forecast />
-      </div>
-      <Footer props={forecast} />
+
+      <Footer />
     </div>
   );
 }
