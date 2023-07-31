@@ -5,6 +5,7 @@ import Header from "components/Header";
 import Forecast from "components/forecast";
 import 'bootstrap/dist/css/bootstrap.css';
 import Footer from "components/Footer";
+import Image from "next/image"
 
 
 export async function getServerSideProps(context) {
@@ -74,7 +75,7 @@ export default function City({ curent, slug, forecast }) {
             <h3>Temperature now: {curent.current.temp_c}&deg;C</h3>
             <div className="temp">
             <h3>Condition: {curent.current.condition.text}</h3>
-            <Image src={"http:"+props.data.day.condition.icon} alt="weather icon" width={64} height={64} />
+            <Image src={"http:"+forecastData.current.condition.icon} alt="weather icon" width={64} height={64} />
 
             </div>
         </div>
