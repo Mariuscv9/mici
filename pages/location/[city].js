@@ -82,7 +82,7 @@ export default function City({ curent, slug, forecast }) {
             {forecastElement}           
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
