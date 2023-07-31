@@ -3,7 +3,6 @@ import "app/globals.css";
 import cities from "/modules/city.list.json";
 import Header from "components/Header";
 import Forecast from "components/forecast";
-import 'bootstrap/dist/css/bootstrap.css';
 import Footer from "components/Footer";
 import Image from "next/image"
 
