@@ -33,7 +33,7 @@ const Modal = ({ isOpen, onClose, children }) => {
     <div style={modalStyle}>
       <div style={modalContentStyle}>
         {children}
-        <button onClick={onClose}>Close</button>
+        <button className="modalbtn" onClick={onClose}>Close</button>
       </div>
     </div>
   );
