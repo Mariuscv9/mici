@@ -2,6 +2,7 @@
 
 import "bootstrap/dist/css/bootstrap.css";
 import Modalcomp from "components/Modal";
+import Image from 'next/image'
 
 export default function Forecast(props) {
   console.log(props.data);
@@ -20,7 +21,7 @@ export default function Forecast(props) {
       </div>
       <div className="condition">
         <h3>{props.data.day.condition.text}</h3>
-        <img src={props.data.day.condition.icon}></img>
+        <Image src={"http:"+props.data.day.condition.icon} alt="weather icon" width={64} height={64} />
       </div>
       <div className="probabilty">
         <h2>Probability of successful mici: {reversedPercentage}%</h2>

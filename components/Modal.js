@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import BookmarkList from "components/BookmarkList";
+import Image from "next/image"
 
 const Modal = ({ isOpen, onClose, children }) => {
   const modalStyle = {
@@ -88,7 +89,7 @@ export default function Modalcomp(props) {
         <h2>Aditional details for {props.data.date}</h2>
         <h3>Average temperature: {props.data.day.avgtemp_c}</h3>
         <h3>{props.data.day.condition.text}</h3>
-        <img src={props.data.day.condition.icon}></img>
+        <Image src={"http:"+props.data.day.condition.icon} alt="weather icon" width={64} height={64} />
         <h2>Probability of successful mici: {reversedPercentage}%</h2>
         <p>Average humitdy: {props.data.day.avghumidity}</p>
         <p>Average visibility: {props.data.day.avgvis_km} km</p>

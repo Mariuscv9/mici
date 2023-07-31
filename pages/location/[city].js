@@ -74,7 +74,8 @@ export default function City({ curent, slug, forecast }) {
             <h3>Temperature now: {curent.current.temp_c}&deg;C</h3>
             <div className="temp">
             <h3>Condition: {curent.current.condition.text}</h3>
-            <img src={curent.current.condition.icon} alt="weather icon" />
+            <Image src={"http:"+props.data.day.condition.icon} alt="weather icon" width={64} height={64} />
+
             </div>
         </div>
         <div className="row daysRow">       
