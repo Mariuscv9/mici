@@ -4,10 +4,10 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <div>
+    <header className="header">
       <Link href="/">
         <Image src="/logotransparent.png" width={350} height={270} alt="logo" />
       </Link>
-    </div>
+    </header>
   );
 }
