@@ -2,10 +2,9 @@
 import "app/globals.css";
 import cities from "/modules/city.list.json";
 import Header from "components/Header";
-import Footer from "components/Footer";
 import Forecast from "components/forecast";
-import { Button, Col, Container, Row } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.css';
+import Footer from "components/Footer";
 
 
 export async function getServerSideProps(context) {
@@ -82,7 +81,7 @@ export default function City({ curent, slug, forecast }) {
             {forecastElement}           
         </div>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
