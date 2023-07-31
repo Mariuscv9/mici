@@ -1,9 +1,11 @@
+"use client"
 import "app/globals.css";
 import cities from "/modules/city.list.json";
 import Header from "components/Header";
 import Footer from "components/Footer";
 import Forecast from "components/forecast";
 import { Button, Col, Container, Row } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 export async function getServerSideProps(context) {
@@ -53,33 +55,33 @@ export default function City({ curent, slug, forecast }) {
   const forecastData = forecast;
   const slugData = slug;
   console.log(forecastData);
-
+  const toggleStyle1 = forecastData.current.is_day=1 ? "curent location_day" : "curent location_night"
+  
+  
 
   const forecastElement = forecastData.forecast.forecastday.map((data) => {
-    return <Forecast data={...data} slug={slugData} key={data.date} />;
+    return <Forecast data={...data} slug={slugData} key={data.date} curent={...forecastData}  />;
   });
   return (
-    <div>
+    <div className="wrapper">
       <Header />
-      <div className="location">
-       
-        <h2>{curent.location.name}</h2>
-        <h4>
-          Contry:{curent.location.country} Region:{curent.location.region}
-        </h4>
-        <h2>Current weather</h2>
-        <h3>Temperature now: {curent.current.temp_c}&deg;C</h3>
-        <div className="temp">
-        <h3>Condition: {curent.current.condition.text}</h3>
-        <img src={curent.current.condition.icon} alt="weather icon" />
-      </div>
-        
-      </div>
-        <div className="forecast-container">
-          {forecastElement}
-         
+        <div className="container-fluid main">
+          <div className={toggleStyle1}>
+            <h2>{curent.location.name}</h2>
+            <h4>
+              Contry:{curent.location.country} Region:{curent.location.region}
+            </h4>
+            <h2>Current weather</h2>
+            <h3>Temperature now: {curent.current.temp_c}&deg;C</h3>
+            <div className="temp">
+            <h3>Condition: {curent.current.condition.text}</h3>
+            <img src={curent.current.condition.icon} alt="weather icon" />
+            </div>
         </div>
-
+        <div className="row daysRow">       
+            {forecastElement}           
+        </div>
+      </div>
       <Footer />
     </div>
   );
