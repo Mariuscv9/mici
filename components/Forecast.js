@@ -1,6 +1,5 @@
 "use client";
 
-// import "bootstrap/dist/css/bootstrap.css";
 import Modalcomp from "components/Modal";
 import Image from 'next/image'
 
