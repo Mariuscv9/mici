@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import BookmarkList from "components/BookmarkList";
-import Image from "next/image"
+import Image from "next/image";
 
 const Modal = ({ isOpen, onClose, children }) => {
   const modalStyle = {
@@ -33,7 +33,9 @@ const Modal = ({ isOpen, onClose, children }) => {
     <div style={modalStyle}>
       <div style={modalContentStyle}>
         {children}
-        <button className="modalbtn" onClick={onClose}>Close</button>
+        <button className="modalbtn" onClick={onClose}>
+          Close
+        </button>
       </div>
     </div>
   );
@@ -89,18 +91,21 @@ export default function Modalcomp(props) {
         <h2>Aditional details for {props.data.date}</h2>
         <h3>Average temperature: {props.data.day.avgtemp_c}</h3>
         <h3>{props.data.day.condition.text}</h3>
-        <Image src={"http:"+props.data.day.condition.icon} alt="weather icon" width={64} height={64} />
+        <Image
+          src={"http:" + props.data.day.condition.icon}
+          alt="weather icon"
+          width={64}
+          height={64}
+        />
         <h2>Probability of successful mici: {reversedPercentage}%</h2>
         <p>Average humitdy: {props.data.day.avghumidity}</p>
         <p>Average visibility: {props.data.day.avgvis_km} km</p>
         <p>Maximum wind speed: {props.data.day.maxwind_kph} km/h</p>
         <p>
           Will it rain?
-          {
-            (props.data.day.daily_will_it_rain = 1
-              ? " Yes it will"
-              : " No it won't")
-          }
+          {props.data.day.daily_will_it_rain === 1
+            ? " Yes it will"
+            : " No it won't"}
         </p>
       </Modal>
       {/* <BookmarkList
