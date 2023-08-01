@@ -1,0 +1,3 @@
+One cool thing the app has is it's global location search (limited the filtering to minimum 3 characters so the ul doesn't go berserk when you type 1 char)
+It can be improved by adding hourly weather in the more details modal for each day, the design definetly needs some polishing, and one life changing feature for this particular type of app would be to implement an emergency
+button that you press to get the nearest store that sell mustard or beer.
