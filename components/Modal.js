@@ -97,7 +97,7 @@ export default function Modalcomp(props) {
         <p>
           Will it rain?
           {
-            (props.data.day.daily_will_it_rain = 1
+            (props.data.day.daily_will_it_rain === 1
               ? " Yes it will"
               : " No it won't")
           }

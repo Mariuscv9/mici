@@ -54,7 +54,7 @@ export default function City({ curent, slug, forecast }) {
   const forecastData = forecast;
   const slugData = slug;
   console.log(forecastData);
-  const toggleStyle1 = forecastData.current.is_day=1 ? "curent location_day" : "curent location_night"
+  const toggleStyle1 = forecastData.current.is_day=1 ? "curent locationDay" : "curent locationNight"
   
   
 
