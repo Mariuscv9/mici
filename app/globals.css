@@ -229,7 +229,7 @@ input{color: black!important;
 
 .location_day {
   border-radius: 7px;
-  background: url("/skyday.jpg") rgba(0, 0, 0, 0.4);
+  background: url("/skyday.jpg") rgba(0, 0, 0, 0.6);
   background-repeat: no-repeat !important;
   background-size: cover !important;
   background-blend-mode: darken !important;
