@@ -147,6 +147,7 @@ ul {
   box-shadow: 1px 1px 1px 1px;
   background-color: #fefcff;
   line-height: 1.5rem;
+  color: black;
 
 }
 
@@ -178,6 +179,8 @@ footer {
 .cta h3 {
   margin-top: 1em;
 }
+input{color: black!important;
+  font-size: 1rem;}
 
 .search input {
   margin-top: 2em;
